@@ -48,7 +48,7 @@ function create_board($combinaciones) {
 }
 
 function display_board($grid, $combinaciones) {
-    echo "<table border='6' style='text-align: center; border-color:blue; background-color: black; color: blue'>";
+    echo "<table border='6' style='text-align: center'>";
     foreach ($grid as $row) {
         echo "<tr>";
         foreach ($row as $cell) {
