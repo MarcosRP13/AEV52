@@ -11,10 +11,10 @@ ob_start();
 </head>
 <body>
 <form method="post">
-    <label> start row: </label> <input type="number" name="initial_row" min="1" max="6" required> <br>
-    <label> start column: </label> <input type="number" name="initial_column" min="1" max="6" required> <br>
-    <label> end row: </label> <input type="number" name="final_row" min="1" max="6" required> <br>
-    <label> end column: </label> <input type="number" name="final_column" min="1" max="6" required> <br>
+    <label> Fila inicial: </label> <input type="number" name="initial_row" min="1" max="6" required> <br>
+    <label> Columna inicial: </label> <input type="number" name="initial_column" min="1" max="6" required> <br>
+    <label> Fila final: </label> <input type="number" name="final_row" min="1" max="6" required> <br>
+    <label> Columna final: </label> <input type="number" name="final_column" min="1" max="6" required> <br>
     <button type="submit" name="validate"> review move </button>
     <button type="submit" name="restart"> restart game </button>
 </form>
@@ -104,22 +104,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if (check_move($initial_row, $initial_column, $final_row, $final_column)) {
                 if (check_combination($start, $end, $combinaciones)) {
-                    echo "<p>Valid Move.</p>";
+                    echo "<p>Movimiento Valido.</p>";
                 } else {
-                    echo "<p>Invalid Move.</p>";
+                    echo "<p>Movimiento Invalido.</p>";
                 }
             } else {
-                echo "<p>Move not allowed.</p>";
+                echo "<p>Movimiento no Permitido.</p>";
             }
         }
     }
 }
 
 if ($start !== null && $end !== null) {
-    echo "<p>Start Row: {$initial_row}, Start Column: {$initial_column}</p>";
-    echo "<p>End Row: {$final_row}, End Column: {$final_column}</p>";
-    echo "<p>Start Combination: Numero: {$combinaciones[$start]['numero']} - Color: {$combinaciones[$start]['color']}</p>";
-    echo "<p>End Combination: Numero: {$combinaciones[$end]['numero']} - Color: {$combinaciones[$end]['color']}</p>";
+    echo "<p>Fila inicial: {$initial_row}, Columna inicial: {$initial_column}</p>";
+    echo "<p>Fila final: {$final_row}, Columna final: {$final_column}</p>";
+    echo "<p>Combinacion Inicial: Numero: {$combinaciones[$start]['numero']} - Color: {$combinaciones[$start]['color']}</p>";
+    echo "<p>Combinacion Final: Numero: {$combinaciones[$end]['numero']} - Color: {$combinaciones[$end]['color']}</p>";
 }
 
 display_board($grid, $combinaciones);
